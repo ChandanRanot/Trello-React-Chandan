@@ -54,3 +54,13 @@ export function getCards(listId) {
   );
   return response;
 }
+
+export function addCard(listId, name) {
+  const response = fetch(
+    `https://api.trello.com/1/cards?idList=${listId}&name=${name}&key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "POST",
+    }
+  );
+  return response;
+}

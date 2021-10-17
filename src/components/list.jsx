@@ -2,6 +2,7 @@ import React from "react";
 import * as TrelloAPI from "../api";
 import Cards from "./cards";
 import { Component } from "react";
+import CreateCard from "./createCard";
 
 class List extends Component {
   constructor(props) {
@@ -10,6 +11,12 @@ class List extends Component {
       cards: [],
     };
   }
+
+  addNewCard = async (listID, name) => {
+    const res = await TrelloAPI.addCard(listID, name);
+    const newCard = await res.json();
+    this.setState({ cards: [...this.state.cards, newCard] });
+  };
 
   fetchCards = async (listId) => {
     const res = await TrelloAPI.getCards(listId);
@@ -33,6 +40,10 @@ class List extends Component {
           </button> */}
         </div>
         <Cards cards={this.state.cards} />
+        <CreateCard
+          listId={this.props.list.id}
+          addNewCard={(listId, name) => this.addNewCard(listId, name)}
+        />
       </div>
     );
   }
