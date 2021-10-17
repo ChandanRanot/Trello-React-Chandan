@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  width: 15rem;
+  height: 8rem;
+}
+.card-body {
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.createBB {
+  width: 15rem;
+  height: 8rem;
+  background-color: rgb(221, 219, 219);
+  border: none;
+  border-radius: 5px;
+}
+.createBrd {
+  border: none;
+  color: rgb(44, 39, 39);
+  font-weight: bold;
+}
