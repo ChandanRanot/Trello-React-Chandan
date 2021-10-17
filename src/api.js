@@ -47,3 +47,10 @@ export function addNewList(name, boardId) {
 //   );
 //   return res;
 // }
+
+export function getCards(listId) {
+  const response = fetch(
+    `https://api.trello.com/1/lists/${listId}/cards/?key=${API_KEY}&token=${API_TOKEN}`
+  );
+  return response;
+}

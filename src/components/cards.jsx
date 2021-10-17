@@ -1,10 +1,13 @@
 import React from "react";
+import Card from "./card";
 
-const Cards = ({ listId }) => {
+const Cards = ({ cards }) => {
   return (
-    <div>
-      <h1>Cards</h1>
-    </div>
+    <>
+      {cards.map((c) => {
+        return <Card key={c.id} card={c} />;
+      })}
+    </>
   );
 };
 

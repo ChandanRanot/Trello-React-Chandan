@@ -2,7 +2,7 @@ import React from "react";
 
 import List from "./list";
 
-const Lists = ({ lists, onDelete }) => {
+const Lists = ({ lists }) => {
   return (
     <>
       {lists.map((l) => {
@@ -10,7 +10,7 @@ const Lists = ({ lists, onDelete }) => {
           <List
             key={l.id}
             list={l}
-            handleDelete={(listID) => onDelete(listID)}
+            // handleDelete={(listID) => onDelete(listID)}
           />
         );
       })}

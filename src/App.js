@@ -98,7 +98,7 @@ class App extends React.Component {
                 <div className="d-flex flex-nowrap">
                   <Lists
                     lists={this.state.lists}
-                    onDelete={(listId) => this.deleteList(listId)}
+                    // onDelete={(listId) => this.deleteList(listId)}
                   />
                   <CreateList
                     onModal={this.handleModal}
