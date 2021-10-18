@@ -51,13 +51,6 @@ class App extends React.Component {
     });
   };
 
-  // deleteList = async (listId) => {
-  //   // const res = await TrelloAPI.deleteList(listId);
-  //   // console.log(res);
-  //   // const lists = this.state.lists.filter((l) => l.id !== listId);
-  //   // this.setState({ lists });
-  // };
-
   async fetchBoards() {
     const res = await TrelloAPI.getBoards();
     const boards = await res.json();
@@ -94,12 +87,9 @@ class App extends React.Component {
                   handleClick={this.createNewBoard}
                 />
               </Route>
-              <Route path="/boards/id">
+              <Route path={`/boards/${this.state.boardId}`}>
                 <div className="d-flex flex-nowrap">
-                  <Lists
-                    lists={this.state.lists}
-                    // onDelete={(listId) => this.deleteList(listId)}
-                  />
+                  <Lists lists={this.state.lists} />
                   <CreateList
                     onModal={this.handleModal}
                     show={this.state.showModal}

@@ -73,3 +73,48 @@ export function removeCard(listId) {
     }
   );
 }
+
+export function getCheckLists(cardId) {
+  const response = fetch(
+    `https://api.trello.com/1/cards/${cardId}/checklists?key=${API_KEY}&token=${API_TOKEN}`
+  );
+  return response;
+}
+
+export function removeCheckList(checkListId) {
+  fetch(
+    `https://api.trello.com/1/checklists/${checkListId}?key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "DELETE",
+    }
+  );
+}
+
+export function addNewCheckList(cardId, name) {
+  const response = fetch(
+    `https://api.trello.com/1/checklists?idCard=${cardId}&name=${name}&key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "POST",
+    }
+  );
+  return response;
+}
+
+export function addItem(id, name) {
+  const response = fetch(
+    `https://api.trello.com/1/checklists/${id}/checkItems?name=${name}&key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "POST",
+    }
+  );
+  return response;
+}
+
+export function deleteItem(checkItemId, checkListID) {
+  fetch(
+    `https://api.trello.com/1/checklists/${checkListID}/checkItems/${checkItemId}?key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "DELETE",
+    }
+  );
+}

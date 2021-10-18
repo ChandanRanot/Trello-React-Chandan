@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Board = ({ board, handleClick }) => {
   return (
-    <Link to="/boards/id" style={{ textDecoration: "none" }}>
+    <Link to={`/boards/${board.id}`} style={{ textDecoration: "none" }}>
       <button
         onClick={() => handleClick(board.id)}
         className="card m-2"

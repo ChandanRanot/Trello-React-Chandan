@@ -38,12 +38,6 @@ class List extends Component {
       <div className="card m-2 " style={{ height: "fit-content" }}>
         <div className="card-header d-flex justify-content-between">
           {this.props.list.name}
-          {/* <button
-            onClick={() => handleDelete(list.id)}
-            className="btn btn-danger btn-sm"
-          >
-            X
-          </button> */}
         </div>
         <Cards
           cards={this.state.cards}
