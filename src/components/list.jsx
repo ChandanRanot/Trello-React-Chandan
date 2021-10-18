@@ -27,6 +27,12 @@ class List extends Component {
     this.fetchCards(this.props.list.id);
   }
 
+  deleteCard = async (cardId) => {
+    await TrelloAPI.removeCard(cardId);
+    const cards = this.state.cards.filter((c) => c.id !== cardId);
+    this.setState({ cards });
+  };
+
   render() {
     return (
       <div className="card m-2 " style={{ height: "fit-content" }}>
@@ -39,7 +45,10 @@ class List extends Component {
             X
           </button> */}
         </div>
-        <Cards cards={this.state.cards} />
+        <Cards
+          cards={this.state.cards}
+          onDelete={(cardId) => this.deleteCard(cardId)}
+        />
         <CreateCard
           listId={this.props.list.id}
           addNewCard={(listId, name) => this.addNewCard(listId, name)}

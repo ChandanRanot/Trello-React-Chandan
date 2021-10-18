@@ -64,3 +64,12 @@ export function addCard(listId, name) {
   );
   return response;
 }
+
+export function removeCard(listId) {
+  fetch(
+    `https://api.trello.com/1/cards/${listId}?key=${API_KEY}&token=${API_TOKEN}`,
+    {
+      method: "DELETE",
+    }
+  );
+}
