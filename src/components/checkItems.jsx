@@ -1,6 +1,5 @@
 import React from "react";
 import CheckItem from "./checkItem";
-import CheckLists from "./checkLists";
 
 const CheckItems = ({ checkItems, checkListId, onDelete }) => {
   return (
